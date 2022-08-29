@@ -1,4 +1,4 @@
 package lk.ijse.spring.repo;
 
-public class TaskRepo {
+public interface TaskRepo {
 }
