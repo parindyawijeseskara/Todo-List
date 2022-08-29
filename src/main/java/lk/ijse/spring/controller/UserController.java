@@ -26,7 +26,7 @@ public class UserController {
     }
 
     //update users
-    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil updateUser(@RequestBody UserDTO userDTO){
         userService.updateUser(userDTO);
         return new ResponseUtil(200,"Updated User",userDTO);
@@ -42,18 +42,14 @@ public class UserController {
     //search users by id
     @GetMapping(path = "/{userId}",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil searchUser(@PathVariable Integer userId){
-        userService.searchUser(userId);
-        return new ResponseUtil(200,"Ok",userId);
+        UserDTO userDTO = userService.searchUser(userId);
+        return new ResponseUtil(200,"Ok",userDTO);
     }
 
     //get all users
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil getAllUsers(){
         return new ResponseUtil(200,"Ok",userService.getAllUsers());
-
     }
-
-
-
 
 }
