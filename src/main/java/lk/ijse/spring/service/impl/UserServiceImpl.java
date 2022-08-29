@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
 
     }
 
-    public void deleteUser(UserDTO userDTO) {
+    public void deleteUser(Integer userId) {
 
     }
 
